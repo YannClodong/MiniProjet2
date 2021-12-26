@@ -16,7 +16,7 @@ public class RedBlueProblem {
         var vs = graph.getVertices();
         PriorityQueue<Vertex> vertices = new PriorityQueue<>(
                 vs.size(),
-                Comparator.comparingLong(n -> -n.countRedEdgesSorting(graph) + n.countBlueEdgesSorting(graph))
+                Comparator.comparingLong(n -> -n.countPotentiel(graph) + n.countAntiPotentiel(graph))
         );
 
         vs.stream()

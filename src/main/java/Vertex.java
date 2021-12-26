@@ -24,12 +24,17 @@ public class Vertex {
         return neighbours;
     }
 
-    public long countRedEdgesSorting(BicoloredGraph graph) {
-        return neighbours.stream().map(n -> graph.getEdgeColor(id, n)).filter(c -> c == EdgeColor.Red).count();
+    public long countPotentiel(BicoloredGraph graph) {
+        return neighbours.stream()
+                .map(n -> graph.getEdgeColor(id, n))
+                .filter(c -> c == EdgeColor.Red).count();
     }
 
-    public long countBlueEdgesSorting(BicoloredGraph graph) {
-        return neighbours.stream().map(n -> graph.getEdgeColor(id, n)).filter(c -> c == EdgeColor.Blue).count();
+    public long countAntiPotentiel(BicoloredGraph graph) {
+        return neighbours.stream()
+                .filter(i -> graph.getVertex(i).getColor() == VertexColor.Red)
+                .map(n -> graph.getEdgeColor(id, n)).filter(c -> c == EdgeColor.Blue)
+                .count();
     }
 
     public void addNeighbour(int vertex) {
