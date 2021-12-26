@@ -1,11 +1,11 @@
-public enum VerticeColor {
+public enum VertexColor {
     Blue(false),
     Red(true);
 
 
     private final boolean b;
 
-    VerticeColor(boolean b) {
+    VertexColor(boolean b) {
         this.b = b;
     }
 
@@ -13,12 +13,12 @@ public enum VerticeColor {
         return b;
     }
 
-    public static VerticeColor getByValue(boolean v) {
+    public static VertexColor getByValue(boolean v) {
         if(v) return Red;
         else return Blue;
     }
 
-    public VerticeColor swap() {
+    public VertexColor swap() {
         if(b) return Blue;
         else return Red;
     }
