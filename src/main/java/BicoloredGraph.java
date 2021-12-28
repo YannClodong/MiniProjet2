@@ -107,11 +107,17 @@ public class BicoloredGraph {
 
     public static BicoloredGraph generate(float p, float q, float r) {
         Random rnd = new Random();
-
-        var result = new BicoloredGraph(100);
-
-        /// TODO: Generate the graph
-
-        return result;
+        var graph = new BicoloredGraph(100);
+        Vertex prev = new Vertex(0, VertexColor.random(rnd, p));
+        graph.addVertex(prev);
+        for (int i = 1; i < 100; i++) {
+            Vertex vertex = new Vertex(i, VertexColor.random(rnd, p));
+            graph.addVertex(vertex);
+            if(rnd.nextFloat() <= r)
+                graph.addEdge(i, i-1, EdgeColor.random(rnd, q));
+            else
+                graph.addEdge(i-1, i, EdgeColor.random(rnd, q));
+        }
+        return graph;
     }
 }

@@ -98,4 +98,16 @@ public class BicoloredGraphTest {
 
     }
 
+    @Test
+    public void testGenerate() {
+        BicoloredGraph graph = BicoloredGraph.generate(0.5f, 0.5f, 0.5f);
+        for (int i = 0; i < 99; i++) {
+            if(!graph.getVertex(i).getNeighbours().isEmpty()) {
+                for (Integer neighbour : graph.getVertex(i).getNeighbours()) {
+                    Assertions.assertTrue(neighbour == i + 1 || neighbour == i - 1);
+                }
+            }
+        }
+    }
+
 }

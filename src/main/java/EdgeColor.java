@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public enum EdgeColor {
     Blue,
     Red,
@@ -11,4 +13,9 @@ public enum EdgeColor {
         }
         throw new RuntimeException("Unexpected exeception");
     }
+
+    public static EdgeColor random(Random random, float q) {
+        return random.nextFloat() <= q ? EdgeColor.Red : EdgeColor.Blue;
+    }
+
 }
