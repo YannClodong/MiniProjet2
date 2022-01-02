@@ -97,8 +97,8 @@ public class BicoloredGraph {
         return result;
     }
 
-    public RedBlueProblem ConvertToProblem(int k) {
-        return new RedBlueProblem(this, k);
+    public RedBlueProblem ConvertToProblem() {
+        return new RedBlueProblem(this);
     }
 
     public List<Vertex> getVertices() {
